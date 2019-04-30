@@ -19,9 +19,4 @@
 
 2.API文档&Dome
 
-- API文档 --- 未完成
-- Dome --- 未完成
-
-3.测试模块
-
-4.发布composer
+- API文档 
