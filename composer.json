@@ -1,7 +1,6 @@
 {
     "name": "myttyy/directory-file",
     "description": ">=PHP7.1适用的目录&文件工具库类，包含目录(文件)创建、复制、剪贴，生成遍历树，以及指定目录查找文件等操作",
-    "type": "metapackage",
     "license": "Apache-2.0",
     "minimum-stability": "stable",
     "version": "1.0",
