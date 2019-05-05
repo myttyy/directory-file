@@ -5,7 +5,7 @@
 ### composer 安装
 
 ```php
-composer require myttyy/directory_file
+composer require myttyy/directory-file
 ```
 
 ### Dome
