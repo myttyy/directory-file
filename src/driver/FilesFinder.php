@@ -150,7 +150,7 @@ use myttyy\driver\Directory;
         }
 
         if(empty($this->paths)){
-            return [];
+            return self;
         }
 
         // 先遍历出所有目录
