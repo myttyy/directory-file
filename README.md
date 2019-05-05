@@ -17,9 +17,9 @@ namespace app\api\controller;
 
 use think\facade\Env;
 
-use myttyy\tools\FilesFinder;
-use myttyy\tools\Directory;
-use myttyy\tools\File;
+use myttyy\FilesFinder;
+use myttyy\Directory;
+use myttyy\File;
 
 class Test
 {

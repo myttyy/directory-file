@@ -1,7 +1,7 @@
 <?php
-namespace myttyy\tools;
+namespace myttyy;
 
-use myttyy\tools\driver\Directory as Dir;
+use myttyy\driver\Directory as Dir;
 
 /**
  * 目录操作类

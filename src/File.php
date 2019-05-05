@@ -1,7 +1,7 @@
 <?php
-namespace myttyy\tools;
+namespace myttyy;
 
-use myttyy\tools\driver\File as FileDriver;
+use myttyy\driver\File as FileDriver;
 
 /**
  * 文件操作类

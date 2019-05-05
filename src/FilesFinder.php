@@ -1,7 +1,7 @@
 <?php
-namespace myttyy\tools;
+namespace myttyy;
 
-use myttyy\tools\driver\FilesFinder as Finder;
+use myttyy\driver\FilesFinder as Finder;
 
 /**
  * 文件查找操作类

@@ -1,7 +1,7 @@
 <?php
-namespace myttyy\tools\driver;
+namespace myttyy\driver;
 
-use myttyy\tools\driver\Directory;
+use myttyy\driver\Directory;
 
  class FilesFinder implements \IteratorAggregate
  {
