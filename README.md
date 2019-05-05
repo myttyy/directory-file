@@ -4,6 +4,10 @@
 
 ### composer 安装
 
+```php
+composer require myttyy/directory_file
+```
+
 ### Dome
 
 ```php
@@ -11,26 +15,34 @@
 
 namespace app\api\controller;
 
-use directoryfile\FilesFinder;
-use directoryfile\FilesFinder;
-use directoryfile\Directory;
+use think\facade\Env;
 
-class Test 
+use myttyy\tools\FilesFinder;
+use myttyy\tools\Directory;
+use myttyy\tools\File;
+
+class Test
 {
     public function index(){
 
         $list1 = (new FilesFinder())->select(["*[0-9]*.log"],[Env::get('runtime_path')])->select();
-         var_dump($list1->toArray());
+        var_dump($list1->toArray());
         $list2 = (new FilesFinder())->findFiles("*[0-9]*.log")->from(Env::get('runtime_path'))->date(">=2019-04-29 18:07:19");
-          var_dump($list2->toArray());
-        $list3 = (new FilesFinder())->findFiles("*[0-9]*.log")->from(Env::get('runtime_path'))->size('2kb');
-       
-      
+        var_dump($list2->toArray());
+        $list3 = (new FilesFinder())->findFiles("*[0-9]*.log")->from(Env::get('runtime_path'))->size('>2Mb');
         var_dump($list3->toArray());
         $list4 = (new FilesFinder())->select(["*.log"],[Env::get('runtime_path')])->exclude("cli.log");
-        var_dump($list4->toArray());
-        $tree = Directory::sizeFormatFielBytes(Env::get('runtime_path'));
+        foreach ($list4 as $key => $value) {
+          var_dump($value);
+        }
+
+
+        $tree = Directory::tree(Env::get('runtime_path'));
         var_dump($tree);
+
+
+        $line = File::getFileLine(Env::get('runtime_path')."/log/201804/30.log",0);
+        var_dump($line);
     }
 }
 ```
@@ -97,12 +109,6 @@ class Test
     File::getFileLine(string $file,int $line )
     ```
 
-- 生成遍历树结构目录数组  
-
-    ```php
-    File::tree(string $dir ,int $max_level = 0)
-    ```
-
 - 查找文件
 
 > FilesFinder下列方法都可以链式调用，返回FilesFinder对象可以使用 foreach遍历
@@ -141,7 +147,8 @@ class Test
 - 指定目录按正则等格式查找文件 
 
     - 基础方法 FilesFinder::select($pattern=null,$paths=null)
-        ```php
+    
+    ```php
     File::tree(string $dir ,int $max_level = 0)
     ```
 
@@ -152,13 +159,14 @@ class Test
     ```
 
     - 按文件大小筛选 FilesFinder::findFiles(...$pattern)
-        
+
     ```php
     File::tree(string $dir ,int $max_level = 0)
     ```
 
     - 查找结果只含文件名的一维数组 FilesFinder::notFilesInfo()
-        
+
+
     ```php
     File::tree(string $dir ,int $max_level = 0)
     ```
