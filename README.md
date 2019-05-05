@@ -147,49 +147,54 @@ class Test
 - 指定目录按正则等格式查找文件 
 
     - 基础方法 FilesFinder::select($pattern=null,$paths=null)
-    
-    ```php
-    File::tree(string $dir ,int $max_level = 0)
-    ```
-
-    - 基础方法 FilesFinder::find(...$pattern) //
 
     ```php
     File::tree(string $dir ,int $max_level = 0)
     ```
 
-    - 按文件大小筛选 FilesFinder::findFiles(...$pattern)
+    - 基础方法,查找目录所有内容
 
     ```php
-    File::tree(string $dir ,int $max_level = 0)
+    FilesFinder::find(...$pattern) //
     ```
 
-    - 查找结果只含文件名的一维数组 FilesFinder::notFilesInfo()
-
+    - 基础方法,查找目录所有文件
 
     ```php
-    File::tree(string $dir ,int $max_level = 0)
+    FilesFinder::findFiles(...$pattern);
     ```
 
-    - 递归设置递归层数 FilesFinder::maxDepth(int $maxDepth)
+    - 查找结果只含文件名的一维数组  
+
+    ```php
+    FilesFinder::notFilesInfo()
+    ```
+
+    - 递归设置递归层数 
         
     ```php
-    File::tree(string $dir ,int $max_level = 0)
+    FilesFinder::maxDepth(int $maxDepth);
     ```
 
-    - 一级目录遍历 
+    - 一级目录遍历 (不递归,仅查找当前一级目录)
         
     ```php
     // $paths:目录路径 支持一维数组 in(["/public","/log"]) 也支持不定参数 in("/public","/log");
-    FilesFinder::in(...$paths) 
+    FilesFinder::in(...$paths);
     ```
 
-    - 递归遍历 FilesFinder::from(...$paths) // 参数同in方法
-    - 从递归遍历中排除路径含有指定字符的文件信息 
-        
+    - 递归遍历
+
     ```php
-    // eg: FilesFinder::size("abc") 将排除文件路径含有abc的文件
-    FilesFinder::exclude() 
+    // $paths:目录路径 支持一维数组 in(["/public","/log"]) 也支持不定参数 in("/public","/log");
+    FilesFinder::from(...$paths);
+    ```
+
+    - 从递归遍历中排除路径含有指定字符的文件信息 
+
+    ```php
+    // eg: FilesFinder::exclude("abc") 将排除文件路径含有abc的文件
+    FilesFinder::exclude();
 
     ```
 
@@ -197,14 +202,14 @@ class Test
 
     ```php
     // eg: FilesFinder::size(">=100kb") 比较符号键下表
-    FilesFinder::size(string $operator)  
+    FilesFinder::size(string $operator); 
     ```
 
     - 按照文件filectime(范指文件创建)时间查找
 
     ```php
     // eg: FilesFinder::date(">=2019-04-30 16:46:57")
-    FilesFinder::date(string $operator) 
+    FilesFinder::date(string $operator);
     ```
 
 - FilesFinder下列方法不可以链式调用
