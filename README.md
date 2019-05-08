@@ -146,10 +146,10 @@ class Test
 
 - 指定目录按正则等格式查找文件 
 
-    - 基础方法 FilesFinder::select($pattern=null,$paths=null)
+    - 基础方法
 
     ```php
-    File::tree(string $dir ,int $max_level = 0)
+    FilesFinder::select($pattern=null,$paths=null)
     ```
 
     - 基础方法,查找目录所有内容
