@@ -29,7 +29,7 @@ class File{
 		if ( ! is_file( $file ) ) {
 			return false;
 		}
-		if(!is_dir($to)){
+		if(!is_dir(dirname( $to ))){
 			//创建目录
 			(new Directory())->create( dirname( $to ) );
 		}
