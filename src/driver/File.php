@@ -1,6 +1,8 @@
 <?php
 namespace myttyy\driver;
 
+use myttyy\driver\Directory;
+
 class File{
 
 	/**
@@ -27,8 +29,11 @@ class File{
 		if ( ! is_file( $file ) ) {
 			return false;
 		}
-		//创建目录
-		$this->create( dirname( $to ) );
+		if(!\is_dir($to)){
+			//创建目录
+			(new Directory())->create( dirname( $to ) );
+		}
+		
 		return copy( $file, $to );
     }
     
